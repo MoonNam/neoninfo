@@ -10,7 +10,7 @@ async def on_ready():
     print("login")
     print(client.user.name)
     print(client.user.id)
-    game = discord.Game("대신 일")
+    game = discord.Game("음메를 ")
     await client.change_presence(status=discord.Status.online, activity=game)
     print("------------------")
 
