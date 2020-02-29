@@ -1,5 +1,9 @@
 import discord
 import datetime
+import import urllib
+import urllib.request
+import bs4
+from urllib.request import Request
 import os
 
 client = discord.Client()
