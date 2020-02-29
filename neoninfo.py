@@ -37,15 +37,15 @@ async def on_message(message, value=None):
         rsp = "123"
         rsp1 = random.choice(rsp)
         if rsp1 == "1":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0xfff000)
+            emb = discord.Embed(title='가위바위보', color=0xfff000)
             emb.add_field(name='승부결과!!', value='봇 :v: 당신 :v: 무승부!')
             await message.channel.send(content=None, embed=emb)
         if rsp1 == "2":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0xff0000)
+            emb = discord.Embed(title='가위바위보', color=0xff0000)
             emb.add_field(name='승부결과!!', value='봇 :fist: 당신 :v: 봇 승리!')
             await message.channel.send(content=None, embed=emb)
         if rsp1 == "3":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0x0dff00)
+            emb = discord.Embed(title='가위바위보', color=0x0dff00)
             emb.add_field(name='승부결과!!', value='봇 :raised_hand: 당신 :v: 당신 승리!')
             await message.channel.send(content=None, embed=emb)
     
@@ -53,30 +53,30 @@ async def on_message(message, value=None):
         rsp = "123"
         rsp1 = random.choice(rsp)
         if rsp1 == "1":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0x0dff00)
+            emb = discord.Embed(title='가위바위보', color=0x0dff00)
             emb.add_field(name='승부결과!!', value='봇 :v: 당신 :fist: 당신 승리!')
             await message.channel.send(content=None, embed=emb)
         if rsp1 == "2":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0xfff000)
+            emb = discord.Embed(title='가위바위보', color=0xfff000)
             emb.add_field(name='승부결과!!', value='봇 :fist: 당신 :fist: 무승부!')
             await message.channel.send(content=None, embed=emb)
         if rsp1 == "3":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0xff0000)
+            emb = discord.Embed(title='가위바위보', color=0xff0000)
             emb.add_field(name='승부결과!!', value='봇 :raised_hand: 당신 :fist: 봇 승리!')
             await message.channel.send(content=None, embed=emb)
     if message.content.startswith("/가위바위보 보"):
         rsp = "123"
         rsp1 = random.choice(rsp)
         if rsp1 == "1":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0xff0000)
+            emb = discord.Embed(title='가위바위보', color=0xff0000)
             emb.add_field(name='승부결과!!', value='봇 :v: 당신 :raised_hand: 봇 승리!')
             await message.channel.send(content=None, embed=emb)
         if rsp1 == "2":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0x0dff00)
+            emb = discord.Embed(title='가위바위보', color=0x0dff00)
             emb.add_field(name='승부결과!!', value='봇 :fist: 당신 :raised_hand: 당신 승리!')
             await message.channel.send(content=None, embed=emb)
         if rsp1 == "3":
-            emb = discord.Embed(title='가위바위보[Rock paper scissors]', color=0xfff000)
+            emb = discord.Embed(title='가위바위보', color=0xfff000)
             emb.add_field(name='승부결과!!', value='봇 :raised_hand: 당신 :raised_hand: 무승부!')
             await message.channel.send(content=None, embed=emb)
 access_token = os.environ["BOT_TOKEN"]
