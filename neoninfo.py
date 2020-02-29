@@ -30,5 +30,7 @@ async def on_message(message, value=None):
         await message.channel.send(embed=embed)
     if message.content.startswith("/제작자"):
         await message.channel.send("제작자 : 음메#7491")
+    if message.content.startswith("/안녕"):
+        await message.channel.send("안녕 나는 음메야 !")
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
