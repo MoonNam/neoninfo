@@ -22,8 +22,7 @@ async def on_message(message, value=None):
         embed = discord.Embed(color=0xff0000)
         embed.add_field(name="서버", value="NEON", inline=True)
         embed.add_field(name="사용자", value=message.author.name, inline=True)
-        embed.add_field(name="가입일", value=str(date.year) + "년" + str(date.month) + "월" + str(date.day) + "일",
-                        inline=True)
+        embed.add_field(name="디스코드 가입일", value=message.author.joined_at, inline=True)
         embed.add_field(name="고유번호/닉네임/직업", value=message.author.display_name, inline=True)
         embed.set_thumbnail(url=message.author.avatar_url)
         embed.add_field(name="제작자", value="음메#7491", inline=True)
