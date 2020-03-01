@@ -5,7 +5,6 @@ import urllib
 import urllib.request
 from urllib.request import urlopen, Request
 import bs4
-import os
 
 client = discord.Client()
 
@@ -15,13 +14,13 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print("------------------")
-    game = discord.Game("음메")
+    game = discord.Game("음메와")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
 @client.event
 async def on_message(message, value=None):
-    if message.content.startswith("/테"):
+    if message.content.startswith("/음메"):
         date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
         embed = discord.Embed(color=0xff0000)
         embed.add_field(name="서버", value="NEON", inline=True)
@@ -32,10 +31,12 @@ async def on_message(message, value=None):
         embed.add_field(name="제작자", value="음메#7491", inline=True)
         embed.set_image(url="https://o.remove.bg/uploads/a3011d27-6843-495a-85ad-fd723ef974f9/prop_ron_drop_sign_.png")
         await message.channel.send(embed=embed)
+        
     if message.content.startswith("/제작자"):
         await message.channel.send("제작자 : 음메#7491")
     if message.content.startswith("/안녕"):
         await message.channel.send("안녕 나는 음메야 !")
+        
     if message.content.startswith("/가위바위보 가위"):
         rsp = "123"
         rsp1 = random.choice(rsp)
@@ -67,6 +68,7 @@ async def on_message(message, value=None):
             emb = discord.Embed(title='가위바위보', color=0xff0000)
             emb.add_field(name='승부결과!!', value='음메 :raised_hand: 당신 :fist: 봇 승리!')
             await message.channel.send(content=None, embed=emb)
+            
     if message.content.startswith("/가위바위보 보"):
         rsp = "123"
         rsp1 = random.choice(rsp)
@@ -160,5 +162,6 @@ async def on_message(message, value=None):
         embed.add_field(name='내일 오후온도', value=tomorrowAfterTemp + '˚', inline=False)  # 내일오후날씨
         embed.add_field(name='내일 오후날씨상태, 미세먼지 상태', value=tomorrowAfterValue, inline=False)  # 내일오후 날씨상태
         await message.channel.send(embed=embed)
+        
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
