@@ -1,5 +1,7 @@
 import discord
 import datetime
+import random
+import os
 
 client = discord.Client()
 
@@ -9,7 +11,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print("------------------")
-    game = discord.Game("음메와")
+    game = discord.Game("음메대신")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 
@@ -26,7 +28,6 @@ async def on_message(message, value=None):
         embed.add_field(name="제작자", value="음메#7491", inline=True)
         embed.set_image(url="https://o.remove.bg/uploads/a3011d27-6843-495a-85ad-fd723ef974f9/prop_ron_drop_sign_.png")
         await message.channel.send(embed=embed)
-        
     if message.content.startswith("/제작자"):
         await message.channel.send("제작자 : 음메#7491")
     if message.content.startswith("/안녕"):
@@ -62,7 +63,6 @@ async def on_message(message, value=None):
             emb = discord.Embed(title='가위바위보', color=0xff0000)
             emb.add_field(name='승부결과!!', value='음메 :raised_hand: 당신 :fist: 봇 승리!')
             await message.channel.send(content=None, embed=emb)
-            
     if message.content.startswith("/가위바위보 보"):
         rsp = "123"
         rsp1 = random.choice(rsp)
