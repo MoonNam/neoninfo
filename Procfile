@@ -1,1 +1,1 @@
-worker: python neoninfo.py
+worker: python neontest.py
