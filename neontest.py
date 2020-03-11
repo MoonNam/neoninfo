@@ -1,6 +1,8 @@
 import discord
 import datetime
 import random
+import urllib.request
+from bs4 import BeautifulSoup
 import os
 
 client = discord.Client()
