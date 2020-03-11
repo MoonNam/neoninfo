@@ -17,6 +17,21 @@ async def on_ready():
 
 @client.event
 async def on_message(message, value=None):
+    if message.content.startswith("/코로나"):
+
+        url = 'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%BD%94%EB%A1%9C%EB%82%98'
+        html = urllib.request.urlopen(url).read()
+        soup = BeautifulSoup(html, 'html.parser')
+
+        people = soup.findAll('strong', {'class': 'num'})
+        data_list = []
+        for i in people:
+            data_list.append(i.get_text().replace('\n', '').replace(' ', ''))
+        embed = discord.Embed(color=0xff0000)
+        embed.add_field(name="코로나 실시간 현황", value="확진자 : " + data_list[0] + "\n격리해제 : " + data_list[1] + "\n검사 중 : " + data_list[2] + "\n사망자 : " + data_list[3], inline=True)
+        embed.set_thumbnail(
+            url="http://post.phinf.naver.net/MjAyMDAyMDNfMjIw/MDAxNTgwNjk0MzkwOTY2.pKNl4PbotKUn_vmYoHNTpKdsDx5HuuAvpA1p8NSQDaYg.1AYI3_Uf7Bk7ALP2lHevuR9ZThmuiHGi0fTNuMPPxnsg.PNG/IBuNUMjY84YotKgVXGthVvcdYVi4.jpg")
+        await message.channel.send(embed=embed)  
     if message.content.startswith("/음메"):
         date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
         embed = discord.Embed(color=0xff0000)
@@ -90,22 +105,6 @@ async def on_message(message, value=None):
                 /코로나\n""", color=0XFF0000)
 
         await message.channel.send(embed=embed)
-    if message.content.startswith("/코로나"):
-
-        url = 'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%BD%94%EB%A1%9C%EB%82%98'
-        html = urllib.request.urlopen(url).read()
-        soup = BeautifulSoup(html, 'html.parser')
-
-        people = soup.findAll('strong', {'class': 'num'})
-        data_list = []
-        for i in people:
-            data_list.append(i.get_text().replace('\n', '').replace(' ', ''))
-        embed = discord.Embed(color=0xff0000)
-        embed.add_field(name="코로나 실시간 현황", value="확진자 : " + data_list[0] + "\n격리해제 : " + data_list[1] + "\n검사 중 : " + data_list[2] + "\n사망자 : " + data_list[3], inline=True)
-        embed.set_thumbnail(
-            url="http://post.phinf.naver.net/MjAyMDAyMDNfMjIw/MDAxNTgwNjk0MzkwOTY2.pKNl4PbotKUn_vmYoHNTpKdsDx5HuuAvpA1p8NSQDaYg.1AYI3_Uf7Bk7ALP2lHevuR9ZThmuiHGi0fTNuMPPxnsg.PNG/IBuNUMjY84YotKgVXGthVvcdYVi4.jpg")
-        await message.channel.send(embed=embed)  
    
-            
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
