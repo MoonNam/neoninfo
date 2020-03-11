@@ -77,7 +77,35 @@ async def on_message(message, value=None):
         if rsp1 == "3":
             emb = discord.Embed(title='가위바위보', color=0xfff000)
             emb.add_field(name='승부결과!!', value='음메 :raised_hand: 당신 :raised_hand: 무승부!')
-            await message.channel.send(content=None, embed=emb)   
+            await message.channel.send(content=None, embed=emb)
+    if message.content.startswith('/명령어'):
+        embed = discord.Embed(title="명령어", description="""\n\n
+                /음메\n
+                /가위바위보 가위\n
+                /가위바위보 바위\n
+                /가위바위보 보\n
+                /출근\n
+                /퇴근\n
+                /clear\n
+                /코로나\n""", color=0XFF0000)
+
+        await message.channel.send(embed=embed)
+    if message.content.startswith("/코로나"):
+
+        url = 'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%BD%94%EB%A1%9C%EB%82%98'
+        html = urllib.request.urlopen(url).read()
+        soup = BeautifulSoup(html, 'html.parser')
+
+        people = soup.findAll('strong', {'class': 'num'})
+        data_list = []
+        for i in people:
+            data_list.append(i.get_text().replace('\n', '').replace(' ', ''))
+        embed = discord.Embed(color=0xff0000)
+        embed.add_field(name="코로나 실시간 현황", value="확진자 : " + data_list[0] + "\n격리해제 : " + data_list[1] + "\n검사 중 : " + data_list[2] + "\n사망자 : " + data_list[3], inline=True)
+        embed.set_thumbnail(
+            url="http://post.phinf.naver.net/MjAyMDAyMDNfMjIw/MDAxNTgwNjk0MzkwOTY2.pKNl4PbotKUn_vmYoHNTpKdsDx5HuuAvpA1p8NSQDaYg.1AYI3_Uf7Bk7ALP2lHevuR9ZThmuiHGi0fTNuMPPxnsg.PNG/IBuNUMjY84YotKgVXGthVvcdYVi4.jpg")
+        await message.channel.send(embed=embed)  
+   
             
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
