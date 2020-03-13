@@ -30,7 +30,7 @@ async def on_message(message, value=None):
         for i in people:
             data_list.append(i.get_text().replace('\n', '').replace(' ', ''))
         embed = discord.Embed(color=0xff0000)
-        embed.add_field(name="코로나 실시간 현황", value="확진자 : " + data_list[0] + "\n격리해제 : " + data_list[1] + "\n검사 중 : " + data_list[2] + "\n사망자 : " + data_list[3], inline=True)
+        embed.add_field(name="코로나 실시간 현황", value="확진자 : " + data_list[0] + " 명" + "\n격리해제 : " + data_list[1] + " 명" + "\n검사 중 : " + data_list[2] + " 명" + "\n사망자 : " + data_list[3] + " 명", inline=True)
         embed.set_thumbnail(
             url="http://post.phinf.naver.net/MjAyMDAyMDNfMjIw/MDAxNTgwNjk0MzkwOTY2.pKNl4PbotKUn_vmYoHNTpKdsDx5HuuAvpA1p8NSQDaYg.1AYI3_Uf7Bk7ALP2lHevuR9ZThmuiHGi0fTNuMPPxnsg.PNG/IBuNUMjY84YotKgVXGthVvcdYVi4.jpg")
         await message.channel.send(embed=embed)  
